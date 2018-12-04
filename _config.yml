@@ -1,23 +1,22 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Watchanan Chantapakul GitHub Pages
+title: Watchanan Chantapakul
 email: tmwatchanan@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Watchanan Chantapakul graduated with Bachelor's degree in Computer Engineering from Chaing Mai University.
-  He is interested many topics, for example, machine learning, artificial intelligence, and computer vision.
-
-baseurl: "/" # the subpath of your site, e.g. /blog/
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://tmwatchanan.github.io" # the base hostname & protocol for your site
-twitter:
-  username: watchananc
-  card: summary
-social:
-  name: Watchanan Chantapakul
-  links:
-    - https://www.linkedin.com/in/watchanan/
-    - https://github.com/tmwatchanan/
-    - https://twitter.com/watchananc
-    - https://medium.com/@watchanan
-    - https://keybase.io/watchanan
-plugins:
-  - jekyll-seo-tag
+github_username: tmwatchanan
+linkedin_username: watchanan
+twitter_username: WatchananC
+
+# Build settings
+markdown: kramdown
