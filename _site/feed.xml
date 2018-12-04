@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 04 Dec 2018 15:58:15 +0700</pubDate>
-    <lastBuildDate>Tue, 04 Dec 2018 15:58:15 +0700</lastBuildDate>
+    <pubDate>Tue, 04 Dec 2018 17:03:49 +0700</pubDate>
+    <lastBuildDate>Tue, 04 Dec 2018 17:03:49 +0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -15,6 +15,34 @@
         <description>&lt;p&gt;Hi folks!&lt;/p&gt;
 
 &lt;p&gt;Before reading this post, I hope that you have already read the former post about &lt;a href=&quot;/opensfm/cv/2018/12/04/opensfm-setup.html&quot;&gt;How to Setup OpenSfM&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;First of all, I am going to give you an instruction of running the library. But actually, it is pretty simple and straightforward because it is a library, so a lot of abstraction is working for us.
+Assume that the dataset’s name is &lt;code class=&quot;highlighter-rouge&quot;&gt;berlin&lt;/code&gt;.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Simply run this command&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;bin/opensfm_run_all data/berlin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;If you want to generate a denser point cloud in &lt;code class=&quot;highlighter-rouge&quot;&gt;.ply&lt;/code&gt; file format, then run these commands&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;bin/opensfm undistort data/berlin
+bin/opensfm compute_depthmaps data/berlin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The created file will be located in &lt;code class=&quot;highlighter-rouge&quot;&gt;data/berlin/depthmaps/merged.ply&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;To create a new dataset, for example, &lt;code class=&quot;highlighter-rouge&quot;&gt;tommy&lt;/code&gt;, go to &lt;code class=&quot;highlighter-rouge&quot;&gt;data/&lt;/code&gt; folder and create a new folder with your dataset name. Then create another &lt;code class=&quot;highlighter-rouge&quot;&gt;images&lt;/code&gt; folder inside the folder. All images will be placed in &lt;code class=&quot;highlighter-rouge&quot;&gt;data/tommy/images&lt;/code&gt; as shown below.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
+├── config.yaml
+├── images
+    ├── 001.jpg
+    ├── 002.jpg
+    ├── 003.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;There are lots of configs we can change inside the OpenSfM library. The main file that contains this configuration is &lt;code class=&quot;highlighter-rouge&quot;&gt;config.yaml&lt;/code&gt;.
 Each &lt;code class=&quot;highlighter-rouge&quot;&gt;config.yaml&lt;/code&gt; file will be placed inside each dataset folder. For instance, the config file of an example dataset named &lt;code class=&quot;highlighter-rouge&quot;&gt;berlin&lt;/code&gt; is located in &lt;code class=&quot;highlighter-rouge&quot;&gt;ROOT/berlin/config.yaml&lt;/code&gt;.&lt;/p&gt;

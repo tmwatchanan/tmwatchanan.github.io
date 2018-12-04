@@ -85,6 +85,34 @@
 
 <p>Before reading this post, I hope that you have already read the former post about <a href="/opensfm/cv/2018/12/04/opensfm-setup.html">How to Setup OpenSfM</a>.</p>
 
+<p>First of all, I am going to give you an instruction of running the library. But actually, it is pretty simple and straightforward because it is a library, so a lot of abstraction is working for us.
+Assume that the dataset’s name is <code class="highlighter-rouge">berlin</code>.</p>
+<ol>
+  <li>Simply run this command</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">bin/opensfm_run_all data/berlin</code></pre></figure>
+
+<ol>
+  <li>If you want to generate a denser point cloud in <code class="highlighter-rouge">.ply</code> file format, then run these commands</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">bin/opensfm undistort data/berlin
+bin/opensfm compute_depthmaps data/berlin</code></pre></figure>
+
+<ol>
+  <li>The created file will be located in <code class="highlighter-rouge">data/berlin/depthmaps/merged.ply</code>.</li>
+</ol>
+
+<p>To create a new dataset, for example, <code class="highlighter-rouge">tommy</code>, go to <code class="highlighter-rouge">data/</code> folder and create a new folder with your dataset name. Then create another <code class="highlighter-rouge">images</code> folder inside the folder. All images will be placed in <code class="highlighter-rouge">data/tommy/images</code> as shown below.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── config.yaml
+├── images
+    ├── 001.jpg
+    ├── 002.jpg
+    ├── 003.jpg
+</code></pre></div></div>
+
 <p>There are lots of configs we can change inside the OpenSfM library. The main file that contains this configuration is <code class="highlighter-rouge">config.yaml</code>.
 Each <code class="highlighter-rouge">config.yaml</code> file will be placed inside each dataset folder. For instance, the config file of an example dataset named <code class="highlighter-rouge">berlin</code> is located in <code class="highlighter-rouge">ROOT/berlin/config.yaml</code>.</p>
 
