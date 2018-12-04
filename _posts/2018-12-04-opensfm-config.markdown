@@ -31,6 +31,18 @@ To create a new dataset, for example, `tommy`, go to `data/` folder and create a
     ├── 003.jpg
 ```
 
+## Visualization
+
+You can browse this url to view the reconstruction meshed result.
+```
+http://localhost:8000/viewer/reconstruction.html#file=/data/berlin/reconstruction.meshed.json
+```
+![Reconstruction View](/assets/opensfm-reconstruction_viewer.jpg)
+
+A denser point cloud stored in `data/berlin/depthmaps/merged.ply` can be visualized in any program that can view `ply` file such as [MeshLab][meshlab] to show the point cloud.
+![Point Cloud](/assets/opensfm-point_cloud.jpg)
+
+## Library Configuration
 
 There are lots of configs we can change inside the OpenSfM library. The main file that contains this configuration is `config.yaml`.
 Each `config.yaml` file will be placed inside each dataset folder. For instance, the config file of an example dataset named `berlin` is located in `ROOT/berlin/config.yaml`.
@@ -59,3 +71,4 @@ sift_edge_threshold: 10       # See OpenCV doc
 {% endhighlight %}
 
 [opensfm-config]: https://github.com/mapillary/OpenSfM/blob/master/opensfm/config.py
+[meshlab]: http://www.meshlab.net/

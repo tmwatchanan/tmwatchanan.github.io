@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 04 Dec 2018 17:03:49 +0700</pubDate>
-    <lastBuildDate>Tue, 04 Dec 2018 17:03:49 +0700</lastBuildDate>
+    <pubDate>Tue, 04 Dec 2018 17:24:34 +0700</pubDate>
+    <lastBuildDate>Tue, 04 Dec 2018 17:24:34 +0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -43,6 +43,18 @@ bin/opensfm compute_depthmaps data/berlin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt
     ├── 002.jpg
     ├── 003.jpg
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;visualization&quot;&gt;Visualization&lt;/h2&gt;
+
+&lt;p&gt;You can browse this url to view the reconstruction meshed result.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://localhost:8000/viewer/reconstruction.html#file=/data/berlin/reconstruction.meshed.json
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/opensfm-reconstruction_viewer.jpg&quot; alt=&quot;Reconstruction View&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A denser point cloud stored in &lt;code class=&quot;highlighter-rouge&quot;&gt;data/berlin/depthmaps/merged.ply&lt;/code&gt; can be visualized in any program that can view &lt;code class=&quot;highlighter-rouge&quot;&gt;ply&lt;/code&gt; file such as &lt;a href=&quot;http://www.meshlab.net/&quot;&gt;MeshLab&lt;/a&gt; to show the point cloud.
+&lt;img src=&quot;/assets/opensfm-point_cloud.jpg&quot; alt=&quot;Point Cloud&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;library-configuration&quot;&gt;Library Configuration&lt;/h2&gt;
 
 &lt;p&gt;There are lots of configs we can change inside the OpenSfM library. The main file that contains this configuration is &lt;code class=&quot;highlighter-rouge&quot;&gt;config.yaml&lt;/code&gt;.
 Each &lt;code class=&quot;highlighter-rouge&quot;&gt;config.yaml&lt;/code&gt; file will be placed inside each dataset folder. For instance, the config file of an example dataset named &lt;code class=&quot;highlighter-rouge&quot;&gt;berlin&lt;/code&gt; is located in &lt;code class=&quot;highlighter-rouge&quot;&gt;ROOT/berlin/config.yaml&lt;/code&gt;.&lt;/p&gt;

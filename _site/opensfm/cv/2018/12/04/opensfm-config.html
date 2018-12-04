@@ -113,6 +113,18 @@ bin/opensfm compute_depthmaps data/berlin</code></pre></figure>
     ├── 003.jpg
 </code></pre></div></div>
 
+<h2 id="visualization">Visualization</h2>
+
+<p>You can browse this url to view the reconstruction meshed result.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://localhost:8000/viewer/reconstruction.html#file=/data/berlin/reconstruction.meshed.json
+</code></pre></div></div>
+<p><img src="/assets/opensfm-reconstruction_viewer.jpg" alt="Reconstruction View" /></p>
+
+<p>A denser point cloud stored in <code class="highlighter-rouge">data/berlin/depthmaps/merged.ply</code> can be visualized in any program that can view <code class="highlighter-rouge">ply</code> file such as <a href="http://www.meshlab.net/">MeshLab</a> to show the point cloud.
+<img src="/assets/opensfm-point_cloud.jpg" alt="Point Cloud" /></p>
+
+<h2 id="library-configuration">Library Configuration</h2>
+
 <p>There are lots of configs we can change inside the OpenSfM library. The main file that contains this configuration is <code class="highlighter-rouge">config.yaml</code>.
 Each <code class="highlighter-rouge">config.yaml</code> file will be placed inside each dataset folder. For instance, the config file of an example dataset named <code class="highlighter-rouge">berlin</code> is located in <code class="highlighter-rouge">ROOT/berlin/config.yaml</code>.</p>
 
