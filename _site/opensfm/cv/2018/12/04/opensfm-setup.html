@@ -108,6 +108,41 @@ First of all, we have to clone the project from GitHub using <code class="highli
   <li>NumPy, SciPy, Networkx, PyYAML, exifread</li>
 </ol>
 
+<h3 id="opensfm">opensfm</h3>
+<p>If you only want to build the source codes to bin/ directory, it will automatically build all codes for you.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">python3 setup.py build</code></pre></figure>
+
+<p>Just in case that you need to install the <code class="highlighter-rouge">opensfm</code> package, then use install command through <code class="highlighter-rouge">setup.py</code> file.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">python3 setup.py install</code></pre></figure>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>This section is dedicated to some issues you might be encountering during the setup process.</p>
+
+<h3 id="http-server">HTTP Server</h3>
+<p>As the library utilizes Python simeple HTTP server, in Python 3, you have to use this command instead of the indicated command in the document.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#python3 -m SimpleHTTPServer</span>
+<span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span></code></pre></figure>
+
+<h3 id="python-packages">Python Packages</h3>
+<h4 id="pyproj">pyproj</h4>
+<p>The required dependency of <code class="highlighter-rouge">pyproj</code> is <code class="highlighter-rouge">cython</code>, so just install it before installing pyproj.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip3 install cython</code></pre></figure>
+
+<p>The default remote url is sometimes unavailable, so you can use this link instead.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip3 install git+https://github.com/jswhit/pyproj.git</code></pre></figure>
+
+<h3 id="building-document">Building Document</h3>
+<h3 id="sphinx">Sphinx</h3>
+<p>The document is written on the <code class="highlighter-rouge">Sphinx</code> tool and <code class="highlighter-rouge">sphinx_rtd_theme</code>. If you don’t have these packages, just install them through <em>pip</em>.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip3 install Sphinx
+pip3 install sphinx_rtd_theme</code></pre></figure>
+
 
   </div>
 

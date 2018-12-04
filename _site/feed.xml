@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 04 Dec 2018 15:24:47 +0700</pubDate>
-    <lastBuildDate>Tue, 04 Dec 2018 15:24:47 +0700</lastBuildDate>
+    <pubDate>Tue, 04 Dec 2018 15:53:48 +0700</pubDate>
+    <lastBuildDate>Tue, 04 Dec 2018 15:53:48 +0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -83,6 +83,41 @@ First of all, we have to clone the project from GitHub using &lt;code class=&quo
   &lt;li&gt;Ceres Solver&lt;/li&gt;
   &lt;li&gt;NumPy, SciPy, Networkx, PyYAML, exifread&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h3 id=&quot;opensfm&quot;&gt;opensfm&lt;/h3&gt;
+&lt;p&gt;If you only want to build the source codes to bin/ directory, it will automatically build all codes for you.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python3 setup.py build&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Just in case that you need to install the &lt;code class=&quot;highlighter-rouge&quot;&gt;opensfm&lt;/code&gt; package, then use install command through &lt;code class=&quot;highlighter-rouge&quot;&gt;setup.py&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python3 setup.py install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h2&gt;
+&lt;p&gt;This section is dedicated to some issues you might be encountering during the setup process.&lt;/p&gt;
+
+&lt;h3 id=&quot;http-server&quot;&gt;HTTP Server&lt;/h3&gt;
+&lt;p&gt;As the library utilizes Python simeple HTTP server, in Python 3, you have to use this command instead of the indicated command in the document.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#python3 -m SimpleHTTPServer&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;python3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;python-packages&quot;&gt;Python Packages&lt;/h3&gt;
+&lt;h4 id=&quot;pyproj&quot;&gt;pyproj&lt;/h4&gt;
+&lt;p&gt;The required dependency of &lt;code class=&quot;highlighter-rouge&quot;&gt;pyproj&lt;/code&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;cython&lt;/code&gt;, so just install it before installing pyproj.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip3 install cython&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The default remote url is sometimes unavailable, so you can use this link instead.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip3 install git+https://github.com/jswhit/pyproj.git&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;building-document&quot;&gt;Building Document&lt;/h3&gt;
+&lt;h3 id=&quot;sphinx&quot;&gt;Sphinx&lt;/h3&gt;
+&lt;p&gt;The document is written on the &lt;code class=&quot;highlighter-rouge&quot;&gt;Sphinx&lt;/code&gt; tool and &lt;code class=&quot;highlighter-rouge&quot;&gt;sphinx_rtd_theme&lt;/code&gt;. If you don’t have these packages, just install them through &lt;em&gt;pip&lt;/em&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip3 install Sphinx
+pip3 install sphinx_rtd_theme&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 </description>
         <pubDate>Tue, 04 Dec 2018 13:57:56 +0700</pubDate>
