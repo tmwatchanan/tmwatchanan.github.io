@@ -19,3 +19,6 @@ twitter_username: WatchananC
 
 # Build settings
 markdown: kramdown
+
+plugins_dir:
+  - jekyll-seo-tag
