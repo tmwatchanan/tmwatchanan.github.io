@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Watchanan Chantapakul</title>
-  <meta name="description" content="I love technologies especially about computer things, thus, this website was created with my enthusiasm for the web development technology.
-">
+  <title>Structure from Motion : How to Setup OpenSfM</title>
+  <meta name="description" content="Hi folks!">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="https://tmwatchanan.github.io/">
+  <link rel="canonical" href="https://tmwatchanan.github.io/opensfm/cv/2018/12/04/opensfm-tutorial.html">
   <link rel="alternate" type="application/rss+xml" title="Watchanan Chantapakul" href="https://tmwatchanan.github.io/feed.xml">
 </head>
 
@@ -56,41 +55,45 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Structure from Motion : How to Setup OpenSfM</h1>
+    <p class="post-meta"><time datetime="2018-12-04T13:57:56+07:00" itemprop="datePublished">Dec 4, 2018</time></p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Dec 4, 2018</span>
+  <div class="post-content" itemprop="articleBody">
+    <p>Hi folks!</p>
 
-        <h2>
-          <a class="post-link" href="/opensfm/cv/2018/12/04/opensfm-config.html">Structure from Motion : OpenSfM Configuration</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 4, 2018</span>
+<p>As I was assigned to do the preliminary about an interesting computer vision algorithm named <strong>Structure from Motion</strong>, so I am going be breaking the process down a bit as it can ease your process getting into SfM.</p>
 
-        <h2>
-          <a class="post-link" href="/opensfm/cv/2018/12/04/opensfm-setup.html">Structure from Motion : How to Setup OpenSfM</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 4, 2018</span>
+<p>There are people who already implemented SfM algorithm in many languages such as MATLAB, C++, and Python. I have done some searches and found out that <code class="highlighter-rouge">OpenSfM</code> library is a potential library to be used mainly because it is an open-source project, so I can modify its codes arbitrarily.</p>
 
-        <h2>
-          <a class="post-link" href="/jekyll/update/2018/12/04/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>Let’s get started with how to setup the library.</p>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<h2 id="building">Building</h2>
+<p>This part is going to be about how to build the library from its source codes.
+First of all, we have to clone the project from GitHub using <code class="highlighter-rouge">--recursive</code> option.</p>
 
-</div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone <span class="nt">--recursive</span> https://github.com/mapillary/OpenSfM</code></pre></figure>
+
+<p>Then we need to make sure that the submodules are updated.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>OpenSfM <span class="o">&amp;&amp;</span> git submodule update <span class="nt">--init</span> <span class="nt">--recursive</span></code></pre></figure>
+
+<h3 id="installing-dependencies">Installing Dependencies</h3>
+<p>The main dependencies we have to install are:</p>
+<ol>
+  <li>OpenCV</li>
+  <li>OpenGV</li>
+  <li>Ceres Solver</li>
+  <li>NumPy, SciPy, Networkx, PyYAML, exifread</li>
+</ol>
+
+
+  </div>
+
+</article>
 
       </div>
     </div>
@@ -146,7 +149,7 @@
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>I love technologies especially about computer things, thus, this website was created with my enthusiasm for the web development technology.
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 </p>
       </div>
     </div>

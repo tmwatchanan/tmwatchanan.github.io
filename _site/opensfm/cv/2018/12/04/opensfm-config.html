@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Watchanan Chantapakul</title>
-  <meta name="description" content="I love technologies especially about computer things, thus, this website was created with my enthusiasm for the web development technology.
-">
+  <title>Structure from Motion : OpenSfM Configuration</title>
+  <meta name="description" content="Hi folks!">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="https://tmwatchanan.github.io/">
+  <link rel="canonical" href="https://tmwatchanan.github.io/opensfm/cv/2018/12/04/opensfm-config.html">
   <link rel="alternate" type="application/rss+xml" title="Watchanan Chantapakul" href="https://tmwatchanan.github.io/feed.xml">
 </head>
 
@@ -56,41 +55,49 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Structure from Motion : OpenSfM Configuration</h1>
+    <p class="post-meta"><time datetime="2018-12-04T14:21:33+07:00" itemprop="datePublished">Dec 4, 2018</time></p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Dec 4, 2018</span>
+  <div class="post-content" itemprop="articleBody">
+    <p>Hi folks!</p>
 
-        <h2>
-          <a class="post-link" href="/opensfm/cv/2018/12/04/opensfm-config.html">Structure from Motion : OpenSfM Configuration</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 4, 2018</span>
+<p>Before reading this post, I hope that you have already read the former post about <a href="/opensfm/cv/2018/12/04/opensfm-setup.html">How to Setup OpenSfM</a>.</p>
 
-        <h2>
-          <a class="post-link" href="/opensfm/cv/2018/12/04/opensfm-setup.html">Structure from Motion : How to Setup OpenSfM</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 4, 2018</span>
+<p>There are lots of configs we can change inside the OpenSfM library. The main file that contains this configuration is <code class="highlighter-rouge">config.yaml</code>.
+Each <code class="highlighter-rouge">config.yaml</code> file will be placed inside each dataset folder. For instance, the config file of an example dataset named <code class="highlighter-rouge">berlin</code> is located in <code class="highlighter-rouge">ROOT/berlin/config.yaml</code>.</p>
 
-        <h2>
-          <a class="post-link" href="/jekyll/update/2018/12/04/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>The full options we can configure is provided <a href="https://github.com/mapillary/OpenSfM/blob/master/opensfm/config.py">here</a>.</p>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<h2 id="features">Features</h2>
+<p>The library has the file that indicates which feature we will use. The file is located in <code class="highlighter-rouge">opensfm/features.py</code>.
+There are a number of feature types provided out-of-the-box:</p>
+<ul>
+  <li>SIFT</li>
+  <li>SURF</li>
+  <li>AKAZE</li>
+  <li>HAHOG (default)</li>
+  <li>ORB</li>
+</ul>
 
-</div>
+<p><span style="color:red">Note that <code class="highlighter-rouge">opencv_contrib</code> is required to be able to use SIFT or SURF.</span>
+So if you want to change the feature algorithm within these algorithms, you can change the <code class="highlighter-rouge">config.yaml</code> file with this line.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">feature_type</span><span class="pi">:</span> <span class="s">SIFT</span></code></pre></figure>
+
+<p>And each feature extraction algorithm also has its parameters, for example, in the case of SIFT.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Params for SIFT</span>
+<span class="na">sift_peak_threshold</span><span class="pi">:</span> <span class="s">0.1</span>     <span class="c1"># Smaller value -&gt; more features</span>
+<span class="na">sift_edge_threshold</span><span class="pi">:</span> <span class="s">10</span>       <span class="c1"># See OpenCV doc</span></code></pre></figure>
+
+
+  </div>
+
+</article>
 
       </div>
     </div>
