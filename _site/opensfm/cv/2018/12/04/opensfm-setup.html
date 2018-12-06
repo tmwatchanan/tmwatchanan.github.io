@@ -126,6 +126,19 @@ First of all, we have to clone the project from GitHub using <code class="highli
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#python3 -m SimpleHTTPServer</span>
 <span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span></code></pre></figure>
 
+<h3 id="python-version">Python Version</h3>
+<h4 id="running-python-scripts">Running Python Scripts</h4>
+<p>On <code class="highlighter-rouge">Linux</code>, if you are running the OpenSfM scripts with your default python command, it is going to call your <code class="highlighter-rouge">python</code>, which means Python version 2 by default. So you have to change some files to make it works normally.</p>
+<h5 id="binopensfm">bin/opensfm</h5>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python3</span>
+<span class="c"># the very first line, change it from `python` to `python3`</span></code></pre></figure>
+
+<h5 id="binopensfm_run_all">bin/opensfm_run_all</h5>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># PYTHON=${2:-python}</span>
+<span class="n">PYTHON</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="n">python3</span><span class="p">}</span></code></pre></figure>
+
 <h3 id="python-packages">Python Packages</h3>
 <h4 id="pyproj">pyproj</h4>
 <p>The required dependency of <code class="highlighter-rouge">pyproj</code> is <code class="highlighter-rouge">cython</code>, so just install it before installing pyproj.</p>

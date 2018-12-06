@@ -50,6 +50,20 @@ As the library utilizes Python simeple HTTP server, in Python 3, you have to use
 python3 -m http.server
 {% endhighlight %}
 
+### Python Version
+#### Running Python Scripts
+On `Linux`, if you are running the OpenSfM scripts with your default python command, it is going to call your `python`, which means Python version 2 by default. So you have to change some files to make it works normally.
+##### bin/opensfm
+{% highlight python %}
+#!/usr/bin/env python3
+# the very first line, change it from `python` to `python3`
+{% endhighlight %}
+##### bin/opensfm_run_all
+{% highlight python %}
+# PYTHON=${2:-python}
+PYTHON=${2:-python3}
+{% endhighlight %}
+
 ### Python Packages
 #### pyproj
 The required dependency of `pyproj` is `cython`, so just install it before installing pyproj.

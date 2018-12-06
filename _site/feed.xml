@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 04 Dec 2018 17:24:34 +0700</pubDate>
-    <lastBuildDate>Tue, 04 Dec 2018 17:24:34 +0700</lastBuildDate>
+    <pubDate>Thu, 06 Dec 2018 17:09:54 +0700</pubDate>
+    <lastBuildDate>Thu, 06 Dec 2018 17:09:54 +0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -141,6 +141,19 @@ First of all, we have to clone the project from GitHub using &lt;code class=&quo
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#python3 -m SimpleHTTPServer&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;python3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;python-version&quot;&gt;Python Version&lt;/h3&gt;
+&lt;h4 id=&quot;running-python-scripts&quot;&gt;Running Python Scripts&lt;/h4&gt;
+&lt;p&gt;On &lt;code class=&quot;highlighter-rouge&quot;&gt;Linux&lt;/code&gt;, if you are running the OpenSfM scripts with your default python command, it is going to call your &lt;code class=&quot;highlighter-rouge&quot;&gt;python&lt;/code&gt;, which means Python version 2 by default. So you have to change some files to make it works normally.&lt;/p&gt;
+&lt;h5 id=&quot;binopensfm&quot;&gt;bin/opensfm&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# the very first line, change it from `python` to `python3`&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h5 id=&quot;binopensfm_run_all&quot;&gt;bin/opensfm_run_all&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;# PYTHON=${2:-python}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;PYTHON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;python3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;python-packages&quot;&gt;Python Packages&lt;/h3&gt;
 &lt;h4 id=&quot;pyproj&quot;&gt;pyproj&lt;/h4&gt;
