@@ -6,9 +6,71 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 06 Dec 2018 17:09:54 +0700</pubDate>
-    <lastBuildDate>Thu, 06 Dec 2018 17:09:54 +0700</lastBuildDate>
+    <pubDate>Tue, 18 Dec 2018 19:00:57 +0700</pubDate>
+    <lastBuildDate>Tue, 18 Dec 2018 19:00:57 +0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Ubuntu 18.04 + CUDA + Nvidia : How to Set Them Up</title>
+        <description>&lt;p&gt;Hi folks!&lt;/p&gt;
+
+&lt;p&gt;To make the CUDA works on a computer might be a pain for someone including me, so I just want to memorise the way I make the system work without any problem. In this post, it is based on these requirements:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Ubuntu 18.04&lt;/li&gt;
+  &lt;li&gt;Nvidia graphic card&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;compatibility&quot;&gt;Compatibility&lt;/h2&gt;
+
+&lt;p&gt;The first thing you need to do is to check the compability between &lt;code class=&quot;highlighter-rouge&quot;&gt;Cuda Toolkit version&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Linux x86_64 driver version&lt;/code&gt;. You can quickly look up the table &lt;a href=&quot;https://docs.nvidia.com/deploy/cuda-compatibility/index.html#binary-compatibility__table-toolkit-driver&quot;&gt;here&lt;/a&gt;. In the case that you want to look at other details, you can go to &lt;a href=&quot;https://docs.nvidia.com/deploy/cuda-compatibility/index.html&quot;&gt;CUDA Compatibility :: GPU Deployment and Management Documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For instance, now (2018-12-18), the most up-to-date CUDA version is 10.1, so I will stick to this version, then I check the aforementioned tatble. As a result, I have to install Nvidia driver for Linux 410, as It says (CUDA 10.0 (10.0.130) &amp;gt;= 410.48).&lt;/p&gt;
+
+&lt;h2 id=&quot;nvidia-driver&quot;&gt;Nvidia Driver&lt;/h2&gt;
+
+&lt;p&gt;To install the Nvidia driver 410, just type this (debian-based):&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;add-apt-repository ppa:graphics-drivers/ppa
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt install nvidia-driver-410&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And do not forget to reboot your Linux with &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo reboot&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;h2 id=&quot;cuda&quot;&gt;CUDA&lt;/h2&gt;
+&lt;p&gt;Firstly, you have to download the &lt;a href=&quot;https://developer.nvidia.com/cuda-downloads&quot;&gt;CUDA Toolkit installer&lt;/a&gt;. Note that the version of CUDA Toolkit must be matched with your Nvidia driver version, and vice versa. There are about 4 different ways to install it, so you can easily follow its instruction, but the one that I recommend is to use &lt;strong&gt;runfile (local)&lt;/strong&gt; approach as there are only 2 steps to complete it.&lt;/p&gt;
+
+&lt;h2 id=&quot;test&quot;&gt;Test&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;cp /usr/local/cuda/cuda-testing/samples
+make&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You can make the make comamnd run faster by adding a flag &lt;code class=&quot;highlighter-rouge&quot;&gt;-j?&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;?&lt;/code&gt; is the number of parallel threads you want it to operate, so the more threads, the more processors you assign it to use. For instance, if my CPU has 8 cores, I can run make command as &lt;code class=&quot;highlighter-rouge&quot;&gt;make -j8&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let’s run an example to check whether it works flawlessly with this command:
+./bin/x86_64/linux/release/vectorAdd&lt;/p&gt;
+
+&lt;!-- ## Caffe --&gt;
+&lt;!-- 
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt; &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&amp;lt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&amp;lt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt install &lt;span class=&quot;nt&quot;&gt;--no-install-recommends&lt;/span&gt; libboost-all-dev &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&amp;lt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt install liblmdb-dev &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&amp;lt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt install libatlas-base-dev &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&amp;lt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+ --&gt;
+
+</description>
+        <pubDate>Tue, 18 Dec 2018 14:07:56 +0700</pubDate>
+        <link>http://localhost:4000/ubuntu/cuda/nvidia/2018/12/18/cuda-on-ubuntu.html</link>
+        <guid isPermaLink="true">http://localhost:4000/ubuntu/cuda/nvidia/2018/12/18/cuda-on-ubuntu.html</guid>
+        
+        
+        <category>ubuntu</category>
+        
+        <category>cuda</category>
+        
+        <category>nvidia</category>
+        
+      </item>
     
       <item>
         <title>Structure from Motion : OpenSfM Configuration</title>
