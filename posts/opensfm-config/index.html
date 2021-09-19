@@ -5,9 +5,10 @@
 <link rel=stylesheet type=text/css href=/css/style.css>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-Regular.woff2>
 <link href="//db.onlinewebfonts.com/c/a23fbc1e40510906fbd35afe5d781e46?family=Komorebi" rel=stylesheet type=text/css>
+<base target=_blank>
 <title>Watchanan Chantapakul | Structure from Motion : OpenSfM Configuration</title>
 </head><body><header class="site-header dashed-bottom navbar">
-<a class=site-title href=#>Watchanan Chantapakul</a>
+<a class=site-title href=/>Watchanan Chantapakul</a>
 <nav class=responsive-nav>
 <label for=navigation-toggle>
 <svg class="i"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons.svg#i-menu"/><svg id="i-menu" viewBox="0 0 32 32"><path d="M4 8h16M4 16h24M4 24h24"/></svg></svg>
@@ -101,7 +102,7 @@ There are a number of feature types provided out-of-the-box:</p>
 <li>HAHOG (default)</li>
 <li>ORB</li>
 </ul>
-<p>Note that <code>opencv_contrib</code> is required to be able to use SIFT or SURF.
+<p><span style=color:red>Note that <code>opencv_contrib</code> is required to be able to use SIFT or SURF.</span>
 So if you want to change the feature algorithm within these algorithms, you can change the <code>config.yaml</code> file with this line.</p>
 <div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>feature_type: SIFT
 </code></pre></div><p>And each feature extraction algorithm also has its parameters, for example, in the case of SIFT.</p>
