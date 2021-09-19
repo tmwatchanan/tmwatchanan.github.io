@@ -1,0 +1,26 @@
+<header class="site-header dashed-bottom navbar">
+    <a class="site-title" href="#">{{ .Site.Title }}</a>
+    <nav class="responsive-nav">
+       <label for="navigation-toggle">
+          <svg class="i"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons.svg#i-menu"></use><svg id="i-menu" viewBox="0 0 32 32"><path d="M4 8h16M4 16h24M4 24h24"></path></svg></svg>
+       </label>
+    </nav>
+    <input type="checkbox" id="navigation-toggle">
+    <nav class="site-nav responsive-site-nav nav-separated">
+        <ul>
+            {{ range .Site.Menus.main }}
+            <li>
+            <a class="nav-link" href="{{ .URL }}">
+            {{ if .Pre }}
+            {{ $icon := printf "<i class=\"fas fa-%s\"></i>" .Pre | safeHTML }}
+            {{ $icon }}
+            {{ end }}
+            
+            {{ $text := print .Name | safeHTML }}
+            {{ $text }}
+            </a>
+            </li>
+            {{ end }}
+        </ul>
+    </nav>
+ </header>

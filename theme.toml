@@ -1,0 +1,12 @@
+name = "Watchanan"
+license = "MIT"
+licenselink = "https://github.com/tmwatchanan/tmwatchanan.github.io/blob/master/LICENSE"
+description = "Watchanan Chantapakul's Homepage"
+homepage = "https://tmwatchanan.github.io/"
+tags = ["homepage", "blog"]
+features = []
+min_version = "0.59.0"
+
+[author]
+  name = "Watchanan Chantapakul"
+  homepage = "https://blogwai.com"

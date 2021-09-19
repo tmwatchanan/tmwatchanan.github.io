@@ -1,0 +1,22 @@
+baseURL = 'https://tmwatchanan.github.io'
+languageCode = 'en-us'
+title = 'Watchanan Chantapakul'
+[menu]
+  [[menu.main]]
+    name = "Home"
+    pre = "home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Posts"
+    pre = "blog"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    name = "Tags"
+    pre = "tags"
+    url = "/tags/"
+    weight = 3
+[markup]
+  [markup.highlight]
+    style = 'vs'
