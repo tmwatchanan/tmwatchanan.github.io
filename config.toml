@@ -20,3 +20,7 @@ title = 'Watchanan Chantapakul'
 [markup]
   [markup.highlight]
     style = 'vs'
+
+  [markup.goldmark]
+      [markup.goldmark.renderer]
+          unsafe = true

@@ -2,10 +2,6 @@
     font-family: JuliaMono-Regular;
     src: url("https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-Regular.woff2");
 }
-@font-face {
-    font-family: JuliaMono-ExtraBold;
-    src: url("https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-ExtraBold.woff2");
-}
 
 * {
     font-size: 14px;
@@ -22,13 +18,16 @@
     font-weight: 800;
 }
 
+button, input, optgroup, select, textarea {
+    font-family: JuliaMono-Regular;
+}
+
 ol, ul, li, code, blockquote {
     font-size: 1em;
 }
 
 .site-header, .site-footer {
-    /* font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "ＭＳ ゴシック" , "MS Gothic", "Noto Sans CJK JP", TakaoPGothic, sans-serif; */
-    font-family: "MS Mincho";
+    font-family: JuliaMono-Regular;
 }
 
 .dashed-top:before, hr.dashed:before, .dashed-bottom:after {
@@ -37,10 +36,13 @@ ol, ul, li, code, blockquote {
 
 .site-main {
     font-family: Tahoma;
-    /* font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "ＭＳ ゴシック" , "MS Gothic", "Noto Sans CJK JP", TakaoPGothic, sans-serif; */
 }
 
 p {
+    text-align: justify;
+}
+
+.justify {
     text-align: justify;
 }
 
@@ -55,4 +57,17 @@ div.highlight div {
 
 .card-header {
     font-size: 24px;
+}
+
+/* publications */
+.pub-paper {
+    margin-bottom: 12px;
+}
+
+.pub-title {
+    font-weight: bold;
+}
+
+.pub-authors {
+    font-style: italic;
 }
