@@ -1,0 +1,58 @@
+@font-face {
+    font-family: JuliaMono-Regular;
+    src: url("https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-Regular.woff2");
+}
+@font-face {
+    font-family: JuliaMono-ExtraBold;
+    src: url("https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-ExtraBold.woff2");
+}
+
+* {
+    font-size: 14px;
+}
+
+.navbar {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.site-title {
+    /* font-family: JuliaMono-ExtraBold; */
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+ol, ul, li, code, blockquote {
+    font-size: 1em;
+}
+
+.site-header, .site-footer {
+    /* font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "ＭＳ ゴシック" , "MS Gothic", "Noto Sans CJK JP", TakaoPGothic, sans-serif; */
+    font-family: "MS Mincho";
+}
+
+.dashed-top:before, hr.dashed:before, .dashed-bottom:after {
+    font-family: "Cousine", monospace;
+}
+
+.site-main {
+    font-family: Tahoma;
+    /* font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "ＭＳ ゴシック" , "MS Gothic", "Noto Sans CJK JP", TakaoPGothic, sans-serif; */
+}
+
+p {
+    text-align: justify;
+}
+
+h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
+    position: static;
+    padding-right: 1ch;
+}
+
+div.highlight div {
+    background-color: white;
+}
+
+.card-header {
+    font-size: 24px;
+}

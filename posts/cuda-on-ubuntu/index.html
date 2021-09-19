@@ -1,0 +1,96 @@
+<!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet type=text/css href=/css/tawian-frontend.css>
+<link rel=stylesheet type=text/css href=/css/style.css>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-Regular.woff2>
+<link href="//db.onlinewebfonts.com/c/a23fbc1e40510906fbd35afe5d781e46?family=Komorebi" rel=stylesheet type=text/css>
+<title>Watchanan Chantapakul | Ubuntu 18.04 + CUDA + Nvidia : How to Set Them Up</title>
+</head><body><header class="site-header dashed-bottom navbar">
+<a class=site-title href=#>Watchanan Chantapakul</a>
+<nav class=responsive-nav>
+<label for=navigation-toggle>
+<svg class="i"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons.svg#i-menu"/><svg id="i-menu" viewBox="0 0 32 32"><path d="M4 8h16M4 16h24M4 24h24"/></svg></svg>
+</label>
+</nav>
+<input type=checkbox id=navigation-toggle>
+<nav class="site-nav responsive-site-nav nav-separated">
+<ul>
+<li>
+<a class=nav-link href=/>
+<i class="fas fa-home"></i>
+Home
+</a>
+</li>
+<li>
+<a class=nav-link href=/posts/>
+<i class="fas fa-blog"></i>
+Posts
+</a>
+</li>
+<li>
+<a class=nav-link href=/tags/>
+<i class="fas fa-tags"></i>
+Tags
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<div class=site-main>
+<div class=container>
+<div class=card>
+<div class=card-header>Ubuntu 18.04 + CUDA + Nvidia : How to Set Them Up</div>
+<div class=card-body>
+<div class=grid>
+<div class=cell>
+<div class=inner>
+<i data-feather=calendar></i>
+<time datetime=2018-12-18>Dec 18, 2018</time>
+by Watchanan Chantapakul
+</div>
+</div>
+<div class=cell>
+<div class="inner text-right">
+<i data-feather=tag></i>
+<a class="btn btn-default btn-ghost" href=https://tmwatchanan.github.io/tags/ubuntu/>ubuntu</a>
+<a class="btn btn-default btn-ghost" href=https://tmwatchanan.github.io/tags/cuda/>cuda</a>
+<a class="btn btn-default btn-ghost" href=https://tmwatchanan.github.io/tags/nvidia/>nvidia</a>
+</div>
+</div>
+</div>
+</div>
+<div class="card-body p-t-1">
+<p>Hi folks!</p>
+<p>To make the CUDA works on a computer might be a pain for someone including me, so I just want to memorise the way I make the system work without any problem. In this post, it is based on these requirements:</p>
+<ul>
+<li>Ubuntu 18.04</li>
+<li>Nvidia graphic card</li>
+</ul>
+<h2 id=compatibility>Compatibility</h2>
+<p>The first thing you need to do is to check the compability between <code>Cuda Toolkit version</code> and <code>Linux x86_64 driver version</code>. You can quickly look up the table <a href=https://docs.nvidia.com/deploy/cuda-compatibility/index.html#binary-compatibility__table-toolkit-driver>here</a>. In the case that you want to look at other details, you can go to <a href=https://docs.nvidia.com/deploy/cuda-compatibility/index.html>CUDA Compatibility :: GPU Deployment and Management Documentation</a>.</p>
+<p>For instance, now (2018-12-18), the most up-to-date CUDA version is 10.1, so I will stick to this version, then I check the aforementioned table. As a result, I have to install Nvidia driver for Linux 410, as It says (CUDA 10.0 (10.0.130) >= 410.48).</p>
+<h2 id=nvidia-driver>Nvidia Driver</h2>
+<p>To install the Nvidia driver 410, just type this (debian-based):</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt install nvidia-driver-410
+</code></pre></div><p>And do not forget to reboot your Linux with <code>sudo reboot</code> command.</p>
+<h2 id=cuda>CUDA</h2>
+<p>Firstly, you have to download the <a href=https://developer.nvidia.com/cuda-downloads>CUDA Toolkit installer</a>. Note that the version of CUDA Toolkit must be matched with your Nvidia driver version, and vice versa. There are about 4 different ways to install it, so you can easily follow its instruction, but the one that I recommend is to use <strong>runfile (local)</strong> approach as there are only 2 steps to complete it.</p>
+<h2 id=test>Test</h2>
+<div class=highlight lineon=true><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cp /usr/local/cuda/cuda-testing/samples
+make
+</code></pre></div><p>You can make the make comamnd run faster by adding a flag <code>-j?</code>. The <code>?</code> is the number of parallel threads you want it to operate, so the more threads, the more processors you assign it to use. For instance, if my CPU has 8 cores, I can run make command as <code>make -j8</code>.</p>
+<p>Let&rsquo;s run an example to check whether it works flawlessly with this command:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>./bin/x86_64/linux/release/vectorAdd
+</code></pre></div>
+</div>
+</div>
+</div>
+</div><footer class="site-footer dashed-top">
+Copyright (c) 2021 Watchanan Chantapakul –
+<a href=https://github.com/tmwatchanan title="tmwatchanan GitHub"><i class="fab fa-github"></i></a>
+<a href=https://www.linkedin.com/in/watchanan/ title="Watchanan Chantapakul LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href=https://blogwai.com title="Watchanan Chantapakul Thai Blog"><i class="fas fa-rss"></i></a>
+</footer><script defer src=/js/fontawesome.js></script></body>
+</html>
