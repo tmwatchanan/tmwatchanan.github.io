@@ -1,4 +1,4 @@
-baseURL = 'https://tmwatchanan.github.io'
+baseURL = 'https://tmwatchanan.github.io/'
 languageCode = 'en-us'
 title = 'Watchanan Chantapakul'
 [menu]
