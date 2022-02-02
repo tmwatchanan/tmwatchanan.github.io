@@ -1,2 +1,8 @@
 # tmwatchanan.github.io
-I uploaded my resume to my GitHub Pages. So you can access [Watchanan Chantapakul's Resume](https://tmwatchanan.github.io/) from anywhere.
+Here's a repository for my personal website. Go check it out at [Watchanan Chantapakul](https://tmwatchanan.github.io/) from anywhere on earth.
+
+
+## Development
+```
+hugo server
+```
