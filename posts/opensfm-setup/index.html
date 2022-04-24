@@ -1,154 +1,33 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<link rel=stylesheet type=text/css href=/css/tawian-frontend.css>
-<link rel=stylesheet type=text/css href=/css/style.css>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-Regular.woff2>
-<link href="//db.onlinewebfonts.com/c/a23fbc1e40510906fbd35afe5d781e46?family=Komorebi" rel=stylesheet type=text/css>
-<base target=_blank>
-<title>Watchanan Chantapakul | Structure from Motion : How to Setup OpenSfM</title>
-</head><body><header class="site-header dashed-bottom navbar">
-<a class=site-title href=/ target=_self>Watchanan Chantapakul</a>
-<nav class=responsive-nav>
-<label for=navigation-toggle>
-<svg class="i"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons.svg#i-menu"/><svg id="i-menu" viewBox="0 0 32 32"><path d="M4 8h16M4 16h24M4 24h24"/></svg></svg>
-</label>
-</nav>
-<input type=checkbox id=navigation-toggle>
-<nav class="site-nav responsive-site-nav nav-separated">
-<ul>
-<li>
-<a class=nav-link href=/ target=_self>
-<i class="fas fa-home"></i>
-Home
-</a>
-</li>
-<li>
-<a class=nav-link href=/posts/ target=_self>
-<i class="fas fa-blog"></i>
-Posts
-</a>
-</li>
-<li>
-<a class=nav-link href=/tags/ target=_self>
-<i class="fas fa-tags"></i>
-Tags
-</a>
-</li>
-</ul>
-</nav>
-</header>
-<div class=site-main>
-<div class=container>
-<div class=card>
-<div class=card-header>Structure from Motion : How to Setup OpenSfM</div>
-<div class=card-body>
-<div class=grid>
-<div class=cell>
-<div class=inner>
-<i data-feather=calendar></i>
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet type=text/css href=/css/tawian-frontend.css><link rel=stylesheet type=text/css href=/css/style.css><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-Regular.woff2><link href="//db.onlinewebfonts.com/c/a23fbc1e40510906fbd35afe5d781e46?family=Komorebi" rel=stylesheet type=text/css><base target=_blank><title>Watchanan Chantapakul | Structure from Motion : How to Setup OpenSfM</title></head><body><header class="site-header dashed-bottom navbar"><a class=site-title href=/ target=_self>Watchanan Chantapakul</a><nav class=responsive-nav><label for=navigation-toggle><svg class="i"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons.svg#i-menu"/><svg id="i-menu" viewBox="0 0 32 32"><path d="M4 8h16M4 16h24M4 24h24"/></svg></svg></label></nav><input type=checkbox id=navigation-toggle><nav class="site-nav responsive-site-nav nav-separated"><ul><li><a class=nav-link href=/ target=_self><i class="fas fa-home"></i>
+Home</a></li><li><a class=nav-link href=/posts/ target=_self><i class="fas fa-blog"></i>
+Posts</a></li><li><a class=nav-link href=/tags/ target=_self><i class="fas fa-tags"></i>
+Tags</a></li></ul></nav></header><div class=site-main><div class=container><div class=card><div class=card-header>Structure from Motion : How to Setup OpenSfM</div><div class=card-body><div class=grid><div class=cell><div class=inner><i data-feather=calendar></i>
 <time datetime=2018-12-04>Dec 4, 2018</time>
-by Watchanan Chantapakul
-</div>
-</div>
-<div class=cell>
-<div class="inner text-right">
-<i data-feather=tag></i>
-<a class="btn btn-default btn-ghost" href=https://tmwatchanan.github.io/tags/opensfm/>opensfm</a>
-</div>
-</div>
-</div>
-</div>
-<div class="card-body p-t-1">
-<p>Hi folks!</p>
-<p>As I was assigned to do the preliminary about an interesting computer vision algorithm named <strong>Structure from Motion</strong>, so I am going be breaking the process down a bit as it can ease your process getting into SfM.</p>
-<p>There are people who already implemented SfM algorithm in many languages such as MATLAB, C++, and Python. I have done some searches and found out that <code>OpenSfM</code> library is a potential library to be used mainly because it is an open-source project, so I can see how the code works.</p>
-<p>Let&rsquo;s get started with how to setup the library.</p>
-<h2 id=building>Building</h2>
-<p>This part is going to be about how to build the library from its source codes.
-First of all, we have to clone the project from GitHub using <code>--recursive</code> option.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git clone --recursive https://github.com/mapillary/OpenSfM
-</code></pre></div><p>Then we need to make sure that the submodules are updated.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cd OpenSfM &amp;&amp; git submodule update --init --recursive
-</code></pre></div><h3 id=installing-dependencies>Installing Dependencies</h3>
-<p>The main dependencies we have to install are:</p>
-<ol>
-<li>OpenCV</li>
-<li>OpenGV</li>
-<li>Ceres Solver</li>
-<li>NumPy, SciPy, Networkx, PyYAML, exifread</li>
-</ol>
-<h3 id=opensfm>opensfm</h3>
-<p>If you only want to build the source codes to bin/ directory, it will automatically build all codes for you.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>python3 setup.py build
-</code></pre></div><p>Just in case that you need to install the <code>opensfm</code> package, then use install command through <code>setup.py</code> file.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>python3 setup.py install
-</code></pre></div><h2 id=troubleshooting>Troubleshooting</h2>
-<p>This section is dedicated to some issues you might be encountering during the setup process.</p>
-<h3 id=http-server>HTTP Server</h3>
-<p>As the library utilizes Python simeple HTTP server, in Python 3, you have to use this command instead of the indicated command in the document.</p>
-<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:green>#python3 -m SimpleHTTPServer</span>
-python3 -m http.server
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=python-version>Python Version</h3>
-<h4 id=running-python-scripts>Running Python Scripts</h4>
-<p>On <code>Linux</code>, if you are running the OpenSfM scripts with your default python command, it is going to call your <code>python</code>, which means Python version 2 by default. So you have to change some files to make it works normally.</p>
-<h5 id=binopensfm>bin/opensfm</h5>
-<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:green>#!/usr/bin/env python3</span>
-<span style=color:green># the very first line, change it from `python` to `python3`</span>
-</code></pre></td></tr></table>
-</div>
-</div><h5 id=binopensfm_run_all>bin/opensfm_run_all</h5>
-<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:green># PYTHON=${2:-python}</span>
-PYTHON=<span style=color:#a31515>${</span>2<span style=color:#00f>:-</span>python3<span style=color:#a31515>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=python-packages>Python Packages</h3>
-<h4 id=pyproj>pyproj</h4>
-<p>The required dependency of <code>pyproj</code> is <code>cython</code>, so just install it before installing pyproj.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pip3 install cython
-</code></pre></div><p>The default remote url is sometimes unavailable, so you can use this link instead.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pip3 install git+https://github.com/jswhit/pyproj.git
-</code></pre></div><h3 id=building-document>Building Document</h3>
-<h4 id=sphinx>Sphinx</h4>
-<p>The document is written on the <code>Sphinx</code> tool and <code>sphinx_rtd_theme</code>. If you don&rsquo;t have these packages, just install them through <em>pip</em>.</p>
-<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pip3 install Sphinx
-pip3 install sphinx_rtd_theme
-</code></pre></td></tr></table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><footer class="site-footer dashed-top">
-Copyright (c) 2022 Watchanan Chantapakul –
+by Watchanan Chantapakul</div></div><div class=cell><div class="inner text-right"><i data-feather=tag></i>
+<a class="btn btn-default btn-ghost" href=https://tmwatchanan.github.io/tags/opensfm/>opensfm</a></div></div></div></div><div class="card-body p-t-1"><p>Hi folks!</p><p>As I was assigned to do the preliminary about an interesting computer vision algorithm named <strong>Structure from Motion</strong>, so I am going be breaking the process down a bit as it can ease your process getting into SfM.</p><p>There are people who already implemented SfM algorithm in many languages such as MATLAB, C++, and Python. I have done some searches and found out that <code>OpenSfM</code> library is a potential library to be used mainly because it is an open-source project, so I can see how the code works.</p><p>Let&rsquo;s get started with how to setup the library.</p><h2 id=building>Building</h2><p>This part is going to be about how to build the library from its source codes.
+First of all, we have to clone the project from GitHub using <code>--recursive</code> option.</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git clone --recursive https://github.com/mapillary/OpenSfM
+</span></span></code></pre></div><p>Then we need to make sure that the submodules are updated.</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cd OpenSfM &amp;&amp; git submodule update --init --recursive
+</span></span></code></pre></div><h3 id=installing-dependencies>Installing Dependencies</h3><p>The main dependencies we have to install are:</p><ol><li>OpenCV</li><li>OpenGV</li><li>Ceres Solver</li><li>NumPy, SciPy, Networkx, PyYAML, exifread</li></ol><h3 id=opensfm>opensfm</h3><p>If you only want to build the source codes to bin/ directory, it will automatically build all codes for you.</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>python3 setup.py build
+</span></span></code></pre></div><p>Just in case that you need to install the <code>opensfm</code> package, then use install command through <code>setup.py</code> file.</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>python3 setup.py install
+</span></span></code></pre></div><h2 id=troubleshooting>Troubleshooting</h2><p>This section is dedicated to some issues you might be encountering during the setup process.</p><h3 id=http-server>HTTP Server</h3><p>As the library utilizes Python simeple HTTP server, in Python 3, you have to use this command instead of the indicated command in the document.</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:green>#python3 -m SimpleHTTPServer</span>
+</span></span><span style=display:flex><span>python3 -m http.server
+</span></span></code></pre></td></tr></table></div></div><h3 id=python-version>Python Version</h3><h4 id=running-python-scripts>Running Python Scripts</h4><p>On <code>Linux</code>, if you are running the OpenSfM scripts with your default python command, it is going to call your <code>python</code>, which means Python version 2 by default. So you have to change some files to make it works normally.</p><h5 id=binopensfm>bin/opensfm</h5><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:green>#!/usr/bin/env python3</span>
+</span></span><span style=display:flex><span><span style=color:green># the very first line, change it from `python` to `python3`</span>
+</span></span></code></pre></td></tr></table></div></div><h5 id=binopensfm_run_all>bin/opensfm_run_all</h5><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:green># PYTHON=${2:-python}</span>
+</span></span><span style=display:flex><span>PYTHON=<span style=color:#a31515>${</span>2<span style=color:#00f>:-</span>python3<span style=color:#a31515>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=python-packages>Python Packages</h3><h4 id=pyproj>pyproj</h4><p>The required dependency of <code>pyproj</code> is <code>cython</code>, so just install it before installing pyproj.</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pip3 install cython
+</span></span></code></pre></div><p>The default remote url is sometimes unavailable, so you can use this link instead.</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pip3 install git+https://github.com/jswhit/pyproj.git
+</span></span></code></pre></div><h3 id=building-document>Building Document</h3><h4 id=sphinx>Sphinx</h4><p>The document is written on the <code>Sphinx</code> tool and <code>sphinx_rtd_theme</code>. If you don&rsquo;t have these packages, just install them through <em>pip</em>.</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pip3 install Sphinx
+</span></span><span style=display:flex><span>pip3 install sphinx_rtd_theme
+</span></span></code></pre></td></tr></table></div></div></div></div></div></div><footer class="site-footer dashed-top">Copyright (c) 2022 Watchanan Chantapakul –
 <a href=https://github.com/tmwatchanan title="tmwatchanan GitHub"><i class="fab fa-github"></i></a>
 <a href=https://www.linkedin.com/in/watchanan/ title="Watchanan Chantapakul LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href=https://blogwai.com title="Watchanan Chantapakul Thai Blog"><i class="fas fa-rss"></i></a>
-</footer><script defer src=/js/fontawesome.js></script></body>
-</html>
+<a href=https://blogwai.com title="Watchanan Chantapakul Thai Blog"><i class="fas fa-rss"></i></a></footer><script defer src=/js/fontawesome.js></script></body></html>

@@ -1,122 +1,29 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<link rel=stylesheet type=text/css href=/css/tawian-frontend.css>
-<link rel=stylesheet type=text/css href=/css/style.css>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-Regular.woff2>
-<link href="//db.onlinewebfonts.com/c/a23fbc1e40510906fbd35afe5d781e46?family=Komorebi" rel=stylesheet type=text/css>
-<base target=_blank>
-<title>Watchanan Chantapakul | Structure from Motion : OpenSfM Configuration</title>
-</head><body><header class="site-header dashed-bottom navbar">
-<a class=site-title href=/ target=_self>Watchanan Chantapakul</a>
-<nav class=responsive-nav>
-<label for=navigation-toggle>
-<svg class="i"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons.svg#i-menu"/><svg id="i-menu" viewBox="0 0 32 32"><path d="M4 8h16M4 16h24M4 24h24"/></svg></svg>
-</label>
-</nav>
-<input type=checkbox id=navigation-toggle>
-<nav class="site-nav responsive-site-nav nav-separated">
-<ul>
-<li>
-<a class=nav-link href=/ target=_self>
-<i class="fas fa-home"></i>
-Home
-</a>
-</li>
-<li>
-<a class=nav-link href=/posts/ target=_self>
-<i class="fas fa-blog"></i>
-Posts
-</a>
-</li>
-<li>
-<a class=nav-link href=/tags/ target=_self>
-<i class="fas fa-tags"></i>
-Tags
-</a>
-</li>
-</ul>
-</nav>
-</header>
-<div class=site-main>
-<div class=container>
-<div class=card>
-<div class=card-header>Structure from Motion : OpenSfM Configuration</div>
-<div class=card-body>
-<div class=grid>
-<div class=cell>
-<div class=inner>
-<i data-feather=calendar></i>
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet type=text/css href=/css/tawian-frontend.css><link rel=stylesheet type=text/css href=/css/style.css><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-Regular.woff2><link href="//db.onlinewebfonts.com/c/a23fbc1e40510906fbd35afe5d781e46?family=Komorebi" rel=stylesheet type=text/css><base target=_blank><title>Watchanan Chantapakul | Structure from Motion : OpenSfM Configuration</title></head><body><header class="site-header dashed-bottom navbar"><a class=site-title href=/ target=_self>Watchanan Chantapakul</a><nav class=responsive-nav><label for=navigation-toggle><svg class="i"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons.svg#i-menu"/><svg id="i-menu" viewBox="0 0 32 32"><path d="M4 8h16M4 16h24M4 24h24"/></svg></svg></label></nav><input type=checkbox id=navigation-toggle><nav class="site-nav responsive-site-nav nav-separated"><ul><li><a class=nav-link href=/ target=_self><i class="fas fa-home"></i>
+Home</a></li><li><a class=nav-link href=/posts/ target=_self><i class="fas fa-blog"></i>
+Posts</a></li><li><a class=nav-link href=/tags/ target=_self><i class="fas fa-tags"></i>
+Tags</a></li></ul></nav></header><div class=site-main><div class=container><div class=card><div class=card-header>Structure from Motion : OpenSfM Configuration</div><div class=card-body><div class=grid><div class=cell><div class=inner><i data-feather=calendar></i>
 <time datetime=2018-12-04>Dec 4, 2018</time>
-by Watchanan Chantapakul
-</div>
-</div>
-<div class=cell>
-<div class="inner text-right">
-<i data-feather=tag></i>
-<a class="btn btn-default btn-ghost" href=https://tmwatchanan.github.io/tags/opensfm/>opensfm</a>
-</div>
-</div>
-</div>
-</div>
-<div class="card-body p-t-1">
-<p>Hi there!</p>
-<p>Before reading this post, I hope that you have already read the former post about <a href=/posts/opensfm-setup/>How to Setup OpenSfM</a>.</p>
-<p>First of all, I am going to give you an instruction of running the library. But actually, it is pretty simple and straightforward because it is a library, so a lot of abstraction is working for us.</p>
-<p>Assume that the dataset&rsquo;s name is <code>berlin</code>.</p>
-<ol>
-<li>Simply run this command
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>bin/opensfm_run_all data/berlin
-</code></pre></div></li>
-<li>If you want to generate a denser point cloud in <code>.ply</code> file format, then run these commands
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>bin/opensfm undistort data/berlin
-bin/opensfm compute_depthmaps data/berlin
-</code></pre></div></li>
-<li>The created file will be located in <code>data/berlin/depthmaps/merged.ply</code>.
-To create a new dataset, for example, <code>tommy</code>, go to <code>data/</code> folder and create a new folder with your dataset name. Then create another <code>images</code> folder inside the folder. All images will be placed in <code>data/tommy/images</code> as shown below.
-<pre tabindex=0><code>.
+by Watchanan Chantapakul</div></div><div class=cell><div class="inner text-right"><i data-feather=tag></i>
+<a class="btn btn-default btn-ghost" href=https://tmwatchanan.github.io/tags/opensfm/>opensfm</a></div></div></div></div><div class="card-body p-t-1"><p>Hi there!</p><p>Before reading this post, I hope that you have already read the former post about <a href=/posts/opensfm-setup/>How to Setup OpenSfM</a>.</p><p>First of all, I am going to give you an instruction of running the library. But actually, it is pretty simple and straightforward because it is a library, so a lot of abstraction is working for us.</p><p>Assume that the dataset&rsquo;s name is <code>berlin</code>.</p><ol><li>Simply run this command<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>bin/opensfm_run_all data/berlin
+</span></span></code></pre></div></li><li>If you want to generate a denser point cloud in <code>.ply</code> file format, then run these commands<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>bin/opensfm undistort data/berlin
+</span></span><span style=display:flex><span>bin/opensfm compute_depthmaps data/berlin
+</span></span></code></pre></div></li><li>The created file will be located in <code>data/berlin/depthmaps/merged.ply</code>.
+To create a new dataset, for example, <code>tommy</code>, go to <code>data/</code> folder and create a new folder with your dataset name. Then create another <code>images</code> folder inside the folder. All images will be placed in <code>data/tommy/images</code> as shown below.<pre tabindex=0><code>.
 ├── config.yaml
 ├── images
     ├── 001.jpg
     ├── 002.jpg
     ├── 003.jpg
-</code></pre></li>
-</ol>
-<h2 id=visualization>Visualization</h2>
-<p>You can browse this url to view the reconstruction meshed result.</p>
-<pre tabindex=0><code>http://localhost:8000/viewer/reconstruction.html#file=/data/berlin/reconstruction.meshed.json
-</code></pre><p><img src=/images/opensfm-reconstruction_viewer.jpg alt="Reconstruction View"></p>
-<p>A denser point cloud stored in <code>data/berlin/depthmaps/merged.ply</code> can be visualized in any program that can views <code>ply</code> file such as <a href=http://www.meshlab.net/>MeshLab</a>.
-<img src=/images/opensfm-point_cloud.jpg alt="Point Cloud"></p>
-<h2 id=library-configuration>Library Configuration</h2>
-<p>There are lots of configs we can change inside the OpenSfM library. The main file that contains this configuration is <code>config.yaml</code>.
-Each <code>config.yaml</code> file will be placed inside each dataset folder. For instance, the config file of an example dataset named <code>berlin</code> is located in <code>ROOT/berlin/config.yaml</code>.</p>
-<p>The full options we can configure is provided <a href=https://github.com/mapillary/OpenSfM/blob/master/opensfm/config.py>here</a>.</p>
-<h2 id=features>Features</h2>
-<p>The library has the file that indicates which feature we will use. The file is located in <code>opensfm/features.py</code>.
-There are a number of feature types provided out-of-the-box:</p>
-<ul>
-<li>SIFT</li>
-<li>SURF</li>
-<li>AKAZE</li>
-<li>HAHOG (default)</li>
-<li>ORB</li>
-</ul>
-<p><span style=color:red>Note that <code>opencv_contrib</code> is required to be able to use SIFT or SURF.</span>
-So if you want to change the feature algorithm within these algorithms, you can change the <code>config.yaml</code> file with this line.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>feature_type: SIFT
-</code></pre></div><p>And each feature extraction algorithm also has its parameters, for example, in the case of SIFT.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:green># Params for SIFT</span>
-sift_peak_threshold: 0.1      <span style=color:green># Smaller value -&gt; more features</span>
-sift_edge_threshold: 10       <span style=color:green># See OpenCV doc</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-</div><footer class="site-footer dashed-top">
-Copyright (c) 2022 Watchanan Chantapakul –
+</code></pre></li></ol><h2 id=visualization>Visualization</h2><p>You can browse this url to view the reconstruction meshed result.</p><pre tabindex=0><code>http://localhost:8000/viewer/reconstruction.html#file=/data/berlin/reconstruction.meshed.json
+</code></pre><p><img src=/images/opensfm-reconstruction_viewer.jpg alt="Reconstruction View"></p><p>A denser point cloud stored in <code>data/berlin/depthmaps/merged.ply</code> can be visualized in any program that can views <code>ply</code> file such as <a href=http://www.meshlab.net/>MeshLab</a>.
+<img src=/images/opensfm-point_cloud.jpg alt="Point Cloud"></p><h2 id=library-configuration>Library Configuration</h2><p>There are lots of configs we can change inside the OpenSfM library. The main file that contains this configuration is <code>config.yaml</code>.
+Each <code>config.yaml</code> file will be placed inside each dataset folder. For instance, the config file of an example dataset named <code>berlin</code> is located in <code>ROOT/berlin/config.yaml</code>.</p><p>The full options we can configure is provided <a href=https://github.com/mapillary/OpenSfM/blob/master/opensfm/config.py>here</a>.</p><h2 id=features>Features</h2><p>The library has the file that indicates which feature we will use. The file is located in <code>opensfm/features.py</code>.
+There are a number of feature types provided out-of-the-box:</p><ul><li>SIFT</li><li>SURF</li><li>AKAZE</li><li>HAHOG (default)</li><li>ORB</li></ul><p><span style=color:red>Note that <code>opencv_contrib</code> is required to be able to use SIFT or SURF.</span>
+So if you want to change the feature algorithm within these algorithms, you can change the <code>config.yaml</code> file with this line.</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span>feature_type: SIFT
+</span></span></code></pre></div><p>And each feature extraction algorithm also has its parameters, for example, in the case of SIFT.</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:green># Params for SIFT</span>
+</span></span><span style=display:flex><span>sift_peak_threshold: 0.1      <span style=color:green># Smaller value -&gt; more features</span>
+</span></span><span style=display:flex><span>sift_edge_threshold: 10       <span style=color:green># See OpenCV doc</span>
+</span></span></code></pre></div></div></div></div></div><footer class="site-footer dashed-top">Copyright (c) 2022 Watchanan Chantapakul –
 <a href=https://github.com/tmwatchanan title="tmwatchanan GitHub"><i class="fab fa-github"></i></a>
 <a href=https://www.linkedin.com/in/watchanan/ title="Watchanan Chantapakul LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href=https://blogwai.com title="Watchanan Chantapakul Thai Blog"><i class="fas fa-rss"></i></a>
-</footer><script defer src=/js/fontawesome.js></script></body>
-</html>
+<a href=https://blogwai.com title="Watchanan Chantapakul Thai Blog"><i class="fas fa-rss"></i></a></footer><script defer src=/js/fontawesome.js></script></body></html>
